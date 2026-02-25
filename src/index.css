@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------
+   BASE STYLES
+--------------------------------*/
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg text-white font-body antialiased;
+  }
+
+  ::selection {
+    background: #b89b5e;
+    color: #0b0b0b;
+  }
+}
+
+/* ------------------------------
+   TYPOGRAPHY SYSTEM
+--------------------------------*/
+@layer components {
+  .heading-xl {
+    @apply font-heading italic tracking-tight text-white;
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    line-height: 1.05;
+  }
+
+  .heading-lg {
+    @apply font-heading tracking-tight text-white;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    line-height: 1.1;
+  }
+
+  .heading-md {
+    @apply font-heading tracking-tight text-white;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.2;
+  }
+
+  .eyebrow {
+    @apply text-gold uppercase tracking-[0.25em] text-xs font-body;
+  }
+
+  .body-text {
+    @apply font-body text-muted text-base leading-relaxed;
+  }
+
+  .body-text-lg {
+    @apply font-body text-muted text-lg leading-relaxed;
+  }
+}
+
+/* ------------------------------
+   BUTTONS
+--------------------------------*/
+@layer components {
+  .btn-gold {
+    @apply inline-flex items-center justify-center
+           px-8 py-4
+           bg-gradient-to-r from-gold to-goldSoft
+           text-black font-body font-medium
+           tracking-widest text-sm
+           transition-all duration-300;
+  }
+
+  .btn-gold:hover {
+    filter: brightness(1.05);
+  }
+}
+
+/* ------------------------------
+   CONTAINERS & SPACING
+--------------------------------*/
+@layer components {
+  .container-main {
+    @apply max-w-7xl mx-auto px-6 md:px-12;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32;
+  }
+}
+
+/* ------------------------------
+   LUXURY GRAIN OVERLAY (OPTIONAL)
+--------------------------------*/
+@layer utilities {
+  .grain::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("/noise.png");
+    z-index: 50;
+  }
+}
